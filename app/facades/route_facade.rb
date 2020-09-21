@@ -4,8 +4,9 @@ class RouteFacade
     coordinates = LocationFacade.find_coordinates(location)
     forecast = ForecastService.find_forecast(coordinates)
     routes = RouteService.find_routes(coordinates)
-    route_objects = routes.each do |route|
+    route_objects = routes[:routes].map do |route|
       Route.new(route)
-    [location, coordinates, forecast, routes]
+    end
+    [location, coordinates, forecast, route_objects]
   end
 end
