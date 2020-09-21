@@ -22,5 +22,12 @@ describe LocationService do
         expect(search[:results].first[:locations].first[:latLng]).to have_key(attribute)
       end
     end
+    it "can find distance between two locations" do
+      origin = '40.03,-105.25'
+      destination = '40.03,-106.25'
+      search = LocationService.find_distance(origin, destination)
+      expect(search[:route].keys).to include(:distance)
+      expect(search[:route][:distance]).to eq(122.267)
+    end
   end
 end

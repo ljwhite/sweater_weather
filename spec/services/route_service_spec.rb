@@ -12,7 +12,7 @@ describe RouteService do
       )
       search = service.find_routes(location)
       expect(search).to be_an Hash
-      expect(search[:routes].count).to eq(50)
+      expect(search[:routes].count).to eq(5)
       expect(search[:routes][0].keys).to include(:id)
       expect(search[:routes][0].keys).to include(:name)
       expect(search[:routes][0].keys).to include(:type)
