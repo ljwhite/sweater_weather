@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe LocationService do
-  describe 'instance methods' do
+  describe 'class methods' do
     it "returns location data" do
       service = LocationService
       location = 'Denver,CO'
