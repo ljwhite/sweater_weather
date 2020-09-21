@@ -15,6 +15,8 @@ class ImageService
     url = "https://api.unsplash.com"
     @conn ||= Faraday.new(url: url) do |req|
       req.headers['Authorization'] = "Client-ID #{ENV['UNSPLASH_API_KEY']}"
+      req.headers['Content-Type'] = 'application/json'
+      req.headers['Accept'] = 'application/json'
     end
   end
 end
