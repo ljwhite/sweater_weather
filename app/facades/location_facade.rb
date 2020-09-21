@@ -10,8 +10,6 @@ class LocationFacade
 
   def self.find_distance(origin, destination)
     distance_return = LocationService.find_distance(origin, destination)
-    OpenStruct.new(
-      distance: distance_return[:route][:distance]
-    )
+    distance_return[:route][:distance]
   end
 end

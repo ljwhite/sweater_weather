@@ -5,6 +5,6 @@ describe 'Routes Controller' do
 
     get '/api/v1/climbing_routes?location=erwin,tn'
     expect(response).to be_successful
-binding.pry 
+    binding.pry 
   end
 end

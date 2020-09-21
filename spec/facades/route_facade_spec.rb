@@ -6,6 +6,7 @@ describe RouteFacade do
       location = "erwin,tn"
       result = RouteFacade.find_routes(location)
       expect(result).to be_an OpenStruct
+      binding.pry
     end
   end
 end
