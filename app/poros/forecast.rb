@@ -47,7 +47,7 @@ class Forecast
       hourly_forecasts["hour_#{hour}"] =
         {
         "temp".to_sym => convert_temperature(hourly[hour][:temp]),
-        "desciption".to_sym => hourly[hour][:weather][0][:main],
+        "description".to_sym => hourly[hour][:weather][0][:main],
         "time".to_sym => find_hour(Time.at(current[:dt]).strftime('%-H').to_i + hour)
         }
     end
