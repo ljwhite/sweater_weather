@@ -5,7 +5,6 @@ class RouteFacade
     forecast_summary = self.find_forecast(location)
     route_objects = self.find_route_data(coordinates)
     distance = self.find_distance(coordinates, route_objects)
-
     attributes =
     {
       location: location,
@@ -14,13 +13,6 @@ class RouteFacade
       route_distance: distance
     }
     RouteDisplay.new(attributes)
-
-    # OpenStruct.new(
-    #   location: location,
-    #   forecast_summary: forecast_summary,
-    #   routes: route_objects,
-    #   route_distance: distance
-    # )
   end
 
   def self.find_route_data(coordinates)

@@ -22,5 +22,6 @@ describe 'Routes Controller' do
     expect(json[:data][:attributes][:routes][0].keys).to include(:distance_to_route)
     expect(json[:data][:attributes][:routes][0][:location]).to be_an Array
     expect(json[:data][:attributes][:routes][0][:distance_to_route]).to be_a Float
+
   end
 end
