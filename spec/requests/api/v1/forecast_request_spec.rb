@@ -6,8 +6,8 @@ describe 'Forecast API' do
     get '/api/v1/forecast?location=denver,co'
     expect(response).to be_successful
     forecast = response.parsed_body#JSON.parse(response.body)
-    expect(forecast['data']['attributes']['data'].keys).to include('current_forecast')
-    expect(forecast['data']['attributes']['data'].keys).to include('hourly_forecast')
-    expect(forecast['data']['attributes']['data'].keys).to include('daily_forecast')
+    expect(forecast['data'][0]['attributes']['data'].keys).to include('current_forecast')
+    expect(forecast['data'][0]['attributes']['data'].keys).to include('hourly_forecast')
+    expect(forecast['data'][0]['attributes']['data'].keys).to include('daily_forecast')
   end
 end
