@@ -22,12 +22,21 @@ describe RouteFacade do
       expect(result.routes[0].rating).to be_a String
       expect(result.routes[0].type).to be_a String
     end
-    it "can provide route data" do
+    xit "can provide route data" do
       coordinates = OpenStruct.new(lat: 39.74, long: -104.99)
       route_objects = RouteFacade.find_route_data(coordinates)
       expect(route_objects).to be_an Array
       expect(route_objects.count).to eq(5)
-      expect(route_objects[0]).to be_a Route       
+      expect(route_objects[0]).to be_a Route
+    end
+    it "can find distance" do
+      coordinates = OpenStruct.new(lat: 39.74, long: -104.99)
+      route_objects = RouteFacade.find_route_data(coordinates)
+      distances = RouteFacade.find_distance(coordinates, route_objects)
+      expect(distances).to be_a Hash
+      expect(distances.count).to eq(5)
+      expect(distances.values.sample).to be_a Float
+      expect(distances.keys.sample).to be_a String
     end
   end
 end
