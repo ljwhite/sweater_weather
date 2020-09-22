@@ -11,5 +11,12 @@ describe LocationFacade do
       expect(coordinates.long).to be_a Float
       expect(coordinates.long.round(2)).to eq(-104.98)
     end
+    it "can find distance between two objects" do
+      origin = "39.74,-104.98"
+      destination = "39.74,-105.98"
+      distance = LocationFacade.find_distance(origin, destination)
+      expect(distance).to be_a Float
+      expect(distance.round(2)).to eq(74.38)
+    end
   end
 end

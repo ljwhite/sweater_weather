@@ -10,4 +10,13 @@ class Route
     @longitude = attrs[:longitude]
     @latitude = attrs[:latitude]
   end
+
+  def self.find_coordinates_of_route_objects
+    self.map do |route_object|
+      OpenStruct.new(
+        lat: route_object.latitude,
+        long: route_object.longitude
+      )
+    end
+  end
 end
