@@ -18,12 +18,18 @@ class RoadTripFacade
       trip_time: roadtrip[:route][:formattedTime],
       temperature: forecast.current_forecast[:current_temp],
       description: forecast.current_forecast[:current_description],
-      origin: origin,
-      destination: destination
+      origin: RoadTripFacade.format_location(origin),
+      destination: RoadTripFacade.format_location(destination)
     }
     RoadTripPlanner.new(attributes)
   end
 
+  def self.format_location(location)
+    arr = location.split(',')
+    arr[0].capitalize!
+    arr[1].upcase!
+    arr.join(", ")
+  end
   # def self.find_forecast(location)
   #   coordinates = LocationFacade.find_coordinates(location)
   #   ForecastFacade.find_forecast
