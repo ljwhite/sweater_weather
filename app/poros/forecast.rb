@@ -84,7 +84,9 @@ class Forecast
   end
 
   def find_hour(hour)
-    if hour > 12
+    if hour > 24
+      "#{hour - 24} AM"
+    elsif hour > 12
        "#{hour - 12} PM"
     else
        "#{hour} AM"
