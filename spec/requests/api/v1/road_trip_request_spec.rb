@@ -20,4 +20,25 @@ describe 'Road Trip Planner' do
     expect(json[:data][:attributes][:origin]).to eq("Denver, CO")
     expect(json[:data][:attributes][:destination]).to eq("Pueblo, CO")
   end
+
+  it "if the api key cannot be found, a 401-level status will result" do
+    api_key = "123abc"
+    post '/api/v1/road_trip', params:
+    {
+      origin: 'Denver,CO',
+      destination: 'Pueblo,CO',
+      api_key: api_key
+    }
+    expect(response.status).to eq(401)
+  end
+
+  it "if the api key is not provided, a 401-level status will result" do
+
+    post '/api/v1/road_trip', params:
+    {
+      origin: 'Denver,CO',
+      destination: 'Pueblo,CO',
+    }
+    expect(response.status).to eq(401)
+  end
 end
