@@ -21,8 +21,8 @@ describe ImageFacade do
       expect(result).to be_an Image
       expect(result.location).to eq(location)
       expect(result.url).to eq(data[:results][0][:urls][:regular])
-      expect(result.artist_name).to eq(data[:results][0][:user][:name])
-      expect(result.artist_portfolio).to eq(data[:results][0][:user][:portfolio_url])
+      expect(result.credits[:artist_name]).to eq(data[:results][0][:user][:name])
+      expect(result.credits[:artist_portfolio]).to eq(data[:results][0][:user][:portfolio_url])
     end
   end
 end
