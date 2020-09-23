@@ -7,6 +7,7 @@ describe 'User Login API' do
     post '/api/v1/sessions', params: {email: 'email', password: 'password' }
     json = JSON.parse(response.body, symbolize_names: true)
     expect(response.status).to eq(201)
+    expect(response.content_type).to eq('application/json')
     expect(json[:data][:attributes].keys).to include(:api_key)
     expect(json[:data][:attributes][:api_key]).to be_a String
     expect(json[:data][:attributes][:api_key]).to eq(user.api_key)

@@ -4,6 +4,7 @@ describe 'Forecast API' do
   it 'send a forecast' do
     get '/api/v1/forecast?location=denver,co'
     expect(response).to be_successful
+    expect(response.content_type).to eq('application/json')
     forecast = JSON.parse(response.body, symbolize_names: true)
     expect(forecast[:data][0][:attributes][:data].keys).to include(:current_forecast)
     expect(forecast[:data][0][:attributes][:data].keys).to include(:hourly_forecast)

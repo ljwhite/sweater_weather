@@ -8,6 +8,7 @@ describe 'User API' do
     json = JSON.parse(response.body, symbolize_names: true)
     expect(response).to be_successful
     expect(response.status).to eq(201)
+    expect(response.content_type).to eq('application/json')
     expect(response.body).not_to include('abc')
   end
   it "will return a 400-level status if passwords don't match " do

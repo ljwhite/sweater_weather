@@ -12,6 +12,7 @@ describe 'Road Trip Planner' do
     }
     json = JSON.parse(response.body, symbolize_names: true)
     expect(response.status).to eq(200)
+    expect(response.content_type).to eq('application/json')
     expect(json[:data][:attributes].keys).to include(:origin)
     expect(json[:data][:attributes].keys).to include(:destination)
     expect(json[:data][:attributes].keys).to include(:time)
