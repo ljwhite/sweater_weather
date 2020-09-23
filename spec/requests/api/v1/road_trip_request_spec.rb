@@ -31,6 +31,8 @@ describe 'Road Trip Planner' do
       api_key: api_key
     }
     expect(response.status).to eq(401)
+    json = JSON.parse(response.body, symbolize_names: true)
+    expect(json[:error]).to eq("User cannot be verified")
   end
 
   it "if the api key is not provided, a 401-level status will result" do
@@ -41,5 +43,7 @@ describe 'Road Trip Planner' do
       destination: 'Pueblo,CO',
     }
     expect(response.status).to eq(401)
+    json = JSON.parse(response.body, symbolize_names: true)
+    expect(json[:error]).to eq("User cannot be verified")
   end
 end
