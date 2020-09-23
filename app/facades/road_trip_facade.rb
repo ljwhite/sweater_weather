@@ -8,12 +8,24 @@ class RoadTripFacade
   #take forecast and road trip to PORO
 
   def self.find_road_trip(origin, destination)
-    origin_coordinates = LocationFacade.find_coordinates(origin)
-    destination_coordinates = LocationFacade.find_coordinates(destination)
-    format_origin = LocationFacade.format_coordinates(origin_coordinates)
-    format_dest = LocationFacade.format_coordinates(destination_coordinates)
-    roadtrip = LocationService.find_road_trip(format_origin, format_dest)
-    forecast = ForecastService.find_forecast(destination_coordinates)
-    RoadTripPlanner.new(roadtrip, forecast)
+    # origin_coordinates = LocationFacade.find_coordinates(origin)
+    # destination_coordinates = LocationFacade.find_coordinates(destination)
+    # format_origin = LocationFacade.format_coordinates(origin_coordinates)
+    # format_dest = LocationFacade.format_coordinates(destination_coordinates)
+    roadtrip = LocationFacade.find_road_trip(origin, destination)
+    forecast = ForecastFacade.find_forecast(destination)
+    attributes = {
+      trip_time: roadtrip[:route][:formattedTime],
+      temperature: forecast.current_forecast[:current_temp],
+      description: forecast.current_forecast[:current_description],
+      origin: origin,
+      destination: destination
+    }
+    RoadTripPlanner.new(attributes)
   end
+
+  # def self.find_forecast(location)
+  #   coordinates = LocationFacade.find_coordinates(location)
+  #   ForecastFacade.find_forecast
+  # end
 end

@@ -11,7 +11,6 @@ describe RoadTripFacade do
       origin = "Denver,CO"
       destination = "Pueblo,CO"
       results = RoadTripFacade.find_road_trip(origin, destination)
-      binding.pry
     end
   end
 end
