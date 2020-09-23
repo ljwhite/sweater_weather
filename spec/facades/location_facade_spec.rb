@@ -13,5 +13,16 @@ describe LocationFacade do
       result = LocationFacade.format_coordinates(coordinates)
       expect(result).to eq("39.74,-104.98")
     end
+    it "find_road_trip" do
+      origin = 'Denver,CO'
+      destination = 'Pueblo,CO'
+      result = LocationFacade.find_road_trip(origin,destination)
+      expect(result).to be_a Hash
+      expect(result[:route].keys).to include(:distance)
+      expect(result[:route].keys).to include(:formattedTime)
+      expect(result[:route][:formattedTime]).to eq("01:44:01")
+      expect(result[:route][:distance]).to eq(111.517)
+
+    end
   end
 end
