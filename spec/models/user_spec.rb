@@ -14,10 +14,10 @@ describe User, type: :model do
   end
   describe 'generate api_key' do
     it "will generate an api key when the user is saved" do
-      user = User.new({email: 'email', password: 'password' })
+      user = User.new({email: 'email_1', password: 'password' })
       expect(user.api_key).to be_nil
       user.save
-      expect(user.api_key).to be_truthy
+      expect(user.api_key).to be_truthy #more robust test (test for uuid)
     end
   end
   describe 'class methods' do

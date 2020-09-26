@@ -2,9 +2,9 @@ require 'rails_helper'
 
 describe 'User Login API' do
   it 'should allow a user to login' do
-    user = User.new({email: 'email', password: 'password' })
+    user = User.new({email: 'email_1', password: 'password' })
     user.save
-    post '/api/v1/sessions', params: {email: 'email', password: 'password' }
+    post '/api/v1/sessions', params: {email: 'email_1', password: 'password' }
     json = JSON.parse(response.body, symbolize_names: true)
     expect(response.status).to eq(201)
     expect(response.content_type).to eq('application/json')

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'Road Trip Planner' do
   it 'should create a road trip given two locations' do
-    user = User.new({email: 'email', password: 'password' })
+    user = User.new({email: 'email_1', password: 'password' })
     user.save
     post '/api/v1/road_trip', params:
     {

@@ -184,6 +184,7 @@ A user can find road trip information given two locations. The forecast will als
 - Verb: Post
 - Endpoint: ```/api/v1/road_trip```
 - Body:
+
 ```
  {
    "origin": "city,st",
@@ -191,15 +192,17 @@ A user can find road trip information given two locations. The forecast will als
    "api_key": "api_key"
   }
 ```
+
 - Example Response:
+
 ```
 {
     "data": {
         "id": null,
         "type": "road_trip",
         "attributes": {
-            "origin": "\"denver, CO\"",
-            "destination": "\"pueblo, CO\"",
+            "origin": "denver, CO",
+            "destination": "pueblo, CO",
             "time": "1 hour, 44 minutes",
             "temperature": 58,
             "description": "Clear Sky"
