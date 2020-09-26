@@ -4,6 +4,8 @@
 
 SweaterWeather is a backend application designed to allow users to find forecasts and plan a road trip.
 
+[![Build Status](https://travis-ci.org/ljwhite/sweater_weather.svg?branch=master)](https://travis-ci.org/ljwhite/sweater_weather)
+
 The application is a RESTful API that receives requests and returns information accordingly. The information returned is pulled by consuming multiple third-party APIs. The application consumes the following APIs:
  - [MapQuest](https://developer.mapquest.com/documentation/) - to find a location coordinates and to show the distance between two locations.
  - [OpenWeather](https://openweathermap.org/api) - to find the forecast of a given location.
